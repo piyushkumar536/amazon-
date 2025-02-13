@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Traffic Light Control</title>
+    <style>
+        .traffic-light {
+            width: 100px;
+            height: 300px;
+            background-color: black;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .light {
+            width: 60px;
+            height: 60px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+        .light.red {
+            background-color: red;
+        }
+        .light.yellow {
+            background-color: yellow;
+        }
+        .light.green {
+            background-color: green;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="traffic-light" id="trafficLight">
+        <div class="light" id="redLight"></div>
+        <div class="light" id="yellowLight"></div>
+        <div class="light" id="greenLight"></div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="changeLight('red')">Red</button>
+        <button onclick="changeLight('yellow')">Yellow</button>
+        <button onclick="changeLight('green')">Green</button>
+    </div>
+
+    <script>
+        function changeLight(color) {
+            // Get all lights
+            const redLight = document.getElementById('redLight');
+            const yellowLight = document.getElementById('yellowLight');
+            const greenLight = document.getElementById('greenLight');
+
+            // Turn off all lights
+            redLight.style.backgroundColor = 'gray';
+            yellowLight.style.backgroundColor = 'gray';
+            greenLight.style.backgroundColor = 'gray';
+
+            // Turn on the selected light
+            if (color === 'red') {
+                redLight.style.backgroundColor = 'red';
+            } else if (color === 'yellow') {
+                yellowLight.style.backgroundColor = 'yellow';
+            } else if (color === 'green') {
+                greenLight.style.backgroundColor = 'green';
+            }
+        }
+    </script>
+
+</body>
+</html>
